@@ -58,7 +58,7 @@
       <li class="nav-item {{ Request::is('statistics*') ? 'active' : '' }}">
         <a class="nav-link" href="{{ url('statistics') }}">
           <i class="fas fa-fw fa-pen"></i>
-          <span>Input Data</span></a>
+          <span>Input Nilai</span></a>
       </li>
       <li class="nav-item {{ Request::is('results*') ? 'active' : '' }}">
         <a class="nav-link" href="{{ url('results') }}">
