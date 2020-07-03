@@ -43,7 +43,7 @@
                             @endphp
                             @forelse($parfumes as $r)
                             <tr>
-                                <td class="text-center">{{ $i + 1 }}</td>
+                                <td class="text-center">{{ $r->number }}</td>
                                 <td>
                                     {{ $r->name }}
                                     <input type="hidden" name="parfume_id[{{$i}}]" value="{{ $r->id }}">

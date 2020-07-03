@@ -26,7 +26,7 @@ class ResultController extends Controller
     public function index(Request $request)
     {
         $criterias = Criteria::all();
-        $parfumes = Parfume::all();
+        $parfumes = Parfume::orderBy('number', 'asc')->get();
 
         return view('results.index', compact(['parfumes', 'criterias']));
     }

@@ -30,6 +30,7 @@
                 <table class="table table-bordered table-hover">
                     <thead>
                         <tr>
+                            <th>No</th>
                             <th>Merk / Jenis</th>
                             <th>Aksi</th>
                         </tr>
@@ -40,6 +41,7 @@
                         @endphp
                         @forelse($parfumes as $item)
                         <tr>
+                            <td>{{ $item->number }}</td>
                             <td>{{ $item->name }}</td>
                             <td width="200px">
                                 <a href="{{ route('parfumes.edit', [$item->id]) }}" class="btn btn-sm btn-warning">Edit</a>
@@ -55,7 +57,7 @@
                         @endphp
                         @empty
                         <tr>
-                            <td colspan="2">Tidak ada data</td>
+                            <td colspan="3">Tidak ada data</td>
                         </tr>
                         @endforelse
                     </tbody>

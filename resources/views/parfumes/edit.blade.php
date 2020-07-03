@@ -15,6 +15,10 @@
                 @csrf
                 @method('PUT')
                 <div class="form-group">
+                    <label>No</label>
+                    <input type="text" name="number" value="{{ $parfume->number }}" class="form-control" placeholder="Isi dengan nomor parfum" required>
+                </div>
+                <div class="form-group">
                     <label>Merk / Jenis</label>
                     <input type="text" name="name" value="{{ $parfume->name }}" class="form-control" placeholder="Isi dengan merk atau jenis parfum" required>
                 </div>

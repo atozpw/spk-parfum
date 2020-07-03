@@ -48,7 +48,7 @@
                     @endphp
                     @foreach ($parfumes as $parfume)
                     <tr>
-                        <td class="text-center">{{ $x }}</td>
+                        <td class="text-center">{{ $parfume->number }}</td>
                         <td>{{ $parfume->name }}</td>
                         @foreach ($criterias as $criteria)
                         <td>
@@ -75,6 +75,7 @@
                                 {{ number_format($getV, 4) }}
                             </a>
                             <input type="hidden" name="data.parfume" value="{{ $parfume->name }}">
+                            <input type="hidden" name="data.number" value="{{ $parfume->number }}">
                             <input type="hidden" name="data.result" value="{{ number_format($getV, 4) }}">
                         </td>
                     </tr>
@@ -127,6 +128,7 @@
                 <table class="table">
                     <thead>
                         <tr>
+                            <th>No.</th>
                             <th>Merk / Jenis</th>
                             <th width="120px">Ranking</th>
                         </tr>
@@ -150,15 +152,17 @@
             var sortable = [];
             var data1 = $('input[name="data.result"]');
             var data2 = $('input[name="data.parfume"]');
+            var data3 = $('input[name="data.number"]');
             var limit = $('input[name="limit"]').val();
             for (var i = 0; i < data1.length; i++) {
-                sortable.push([data2[i].value, data1[i].value]);
+                sortable.push([data2[i].value, data1[i].value, data3[i].value]);
             }
             var sorting = sortable.sort(function(a, b){return b[1] - a[1]});
             $('#modalSortingContent').empty();
             for (var j = 0; j < parseInt(limit); j++) {
                 $('#modalSortingContent').append(
                     '<tr>' +
+                        '<td>' + sorting[j][2] + '</td>' +
                         '<td>' + sorting[j][0] + '</td>' +
                         '<td>' + sorting[j][1] + '</td>' +
                     '</tr>'

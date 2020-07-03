@@ -25,10 +25,10 @@ class ParfumeController extends Controller
     public function index(Request $request)
     {
         if ($request->q) {
-            $parfumes = Parfume::whereRaw('name like "%' . $request->q . '%"')->orderBy('id', 'desc')->paginate(10);
+            $parfumes = Parfume::whereRaw('name like "%' . $request->q . '%"')->orderBy('number', 'asc')->paginate(10);
         }
         else {
-            $parfumes = Parfume::orderBy('id', 'desc')->paginate(10);
+            $parfumes = Parfume::orderBy('number', 'asc')->paginate(10);
         }
         
         $request->flash();
@@ -54,7 +54,7 @@ class ParfumeController extends Controller
      */
     public function store(Request $request)
     {
-        Parfume::create(['name' => $request->name]);
+        Parfume::create(['number' => $request->number, 'name' => $request->name]);
 
         $request->session()->flash('mess', 'Data berhasil disimpan');
 
@@ -95,7 +95,7 @@ class ParfumeController extends Controller
     public function update(Request $request, $id)
     {
         $parfume = Parfume::find($id);
-        $parfume->update(['name' => $request->name]);
+        $parfume->update(['number' => $request->number, 'name' => $request->name]);
 
         $request->session()->flash('mess', 'Data berhasil diperbaharui');
 

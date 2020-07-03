@@ -14,6 +14,10 @@
             <form action="{{ route('parfumes.store') }}" method="POST">
                 @csrf
                 <div class="form-group">
+                    <label>No</label>
+                    <input type="text" name="number" class="form-control" placeholder="Isi dengan nomor parfum" required>
+                </div>
+                <div class="form-group">
                     <label>Merk / Jenis</label>
                     <input type="text" name="name" class="form-control" placeholder="Isi dengan merk atau jenis parfum" required>
                 </div>
